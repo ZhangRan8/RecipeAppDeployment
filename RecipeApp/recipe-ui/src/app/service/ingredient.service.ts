@@ -14,7 +14,7 @@ export class IngredientService {
 
   private ingredientsData: Observable<Ingredient[]> = of([]);
 
-  private apiUrl = 'http://localhost:5263/Ingredients';
+  private apiUrl = 'https://lorraine-recipeapp-webapp-ahfvhvgaayd2fpbt.eastus-01.azurewebsites.net/ingredients';
 
   constructor(private http: HttpClient) { }
 

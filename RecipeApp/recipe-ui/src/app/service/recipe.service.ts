@@ -10,8 +10,8 @@ import { catchError } from 'rxjs/operators';
 export class RecipeService {
 
   private recipesData: Observable<Recipe[]> = of([]);
-  private apiUrl = 'http://localhost:5263/recipes';
-  private apiUrlAdd = 'http://localhost:5263/recipe/add';
+  private apiUrl = 'https://lorraine-recipeapp-webapp-ahfvhvgaayd2fpbt.eastus-01.azurewebsites.net/recipes';
+  private apiUrlAdd = 'https://lorraine-recipeapp-webapp-ahfvhvgaayd2fpbt.eastus-01.azurewebsites.net/recipe/add';
 
   constructor(private http: HttpClient) { }
 
