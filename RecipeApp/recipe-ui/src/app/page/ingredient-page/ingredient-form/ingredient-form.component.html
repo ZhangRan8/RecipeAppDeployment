@@ -1,0 +1,96 @@
+<div class="container">
+    <header class="logo">
+        Ingredient
+    </header>
+
+    <h1 class="custom-header" *ngIf="!isEditMode">Add ingredient</h1>
+    <h1 class="custom-header" *ngIf="isEditMode">Edit ingredient</h1>
+
+    <div class="added-toast">
+        @if (isAdded) {
+        <ngb-toast header="Added Status" [autohide]="false" (hidden)="closeAddedToast()">
+            Added Successfully. Close this by clicking on the close button and nagivate to the home page.
+        </ngb-toast>
+        }
+    </div>
+
+    <div class="error-toast">
+        @if (ifErrorOccured) {
+        <ngb-toast header="Error Status" [autohide]="false" (hidden)="ifErrorOccured = false">
+            Error occurred while adding the ingredient. Close this by clicking on the close button and try again.
+        </ngb-toast>
+        }
+    </div>
+
+    <div class="edit-toast">
+        @if (isEdited) {
+        <ngb-toast header="Edited Status" [autohide]="false" (hidden)="closeEditedToast()">
+            Edited Successfully. Close this by clicking on the close button and nagivate to the home page.
+        </ngb-toast>
+        }
+    </div>
+
+    <form [formGroup]="ingredientForm" (ngSubmit)="onSubmit()">
+
+        <section class="listing-description">
+            <div class="form-item">
+                <label class="listing-name">Ingredient Name*: </label>
+                <input class="custom-input" type="text" placeholder="e.g. Garlic" formControlName="ingredientName" />
+                <div class="error-message">
+                    @if (nameControl?.touched && nameControl?.invalid) {
+                    <ngb-toast [autohide]="false" (hidden)="nameControl?.touched && nameControl?.valid">
+                        Ingredient Name must not be blank.
+                    </ngb-toast>
+                    }
+                </div>
+            </div>
+
+
+            <div class="form-item">
+                <label class="listing-image">Image URL: </label>
+                <input class="custom-input" type="url" placeholder="e.g. https://example.com" pattern="https://.*"
+                    formControlName="imageUrl" />
+            </div>
+
+            <div class="button-group form-item">
+                <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="ingredientForm.invalid">
+                    {{ isEditMode ? 'Update Ingredient' : 'Save Ingredient' }}
+                </button>
+                <a [routerLink]="['/ingredients']" class="btn btn-secondary ms-3" role="button">Cancel</a>
+                @if (isEditMode) {
+                <button type="button" class="btn btn-danger ms-5" (click)="onDeleteClick(exampleModal)">Delete
+                    Ingredient</button>
+                }
+            </div>
+
+        </section>
+
+
+        <ng-template #exampleModal let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title">Ingredient deletion</h4>
+                <button type="button" class="btn-close" aria-label="Close button" aria-describedby="modal-title"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <strong>Are you sure you want to delete this ingredient?</strong>
+                </p>
+                <p>
+                    All information associated to this ingredient will be permanently deleted.
+                    <span class="text-danger">This operation can not be undone.</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary"
+                    (click)="modal.dismiss('cancel click')">Cancel</button>
+                <button type="button" ngbAutofocus class="btn btn-danger"
+                    (click)="deleteAndClose(modal)">Delete</button>
+            </div>
+        </ng-template>
+
+    </form>
+
+</div>
+
+<div class="overlay" *ngIf="isOverlayVisible"></div>

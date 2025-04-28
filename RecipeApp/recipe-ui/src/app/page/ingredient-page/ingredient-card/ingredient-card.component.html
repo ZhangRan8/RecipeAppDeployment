@@ -1,0 +1,10 @@
+<div class="card shadow-sm">
+    <img [src]="ingredient.imageUrl" [alt]="ingredient.ingredientName" class="ingredient-img">
+    <div class="card-body">
+        <h5 class="card-title">{{ ingredient.ingredientName }}</h5>
+        <div class="d-flex justify-content-between align-items-center">
+            <a role="button" class="btn btn-sm btn-outline-secondary"
+                [routerLink]="['/ingredients/edit', this.ingredient.ingredientId]">Edit</a>
+        </div>
+    </div>
+</div>

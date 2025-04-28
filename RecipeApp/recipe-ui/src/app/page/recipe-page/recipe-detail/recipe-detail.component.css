@@ -1,0 +1,11 @@
+.fixed-img {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.instructions-text {
+    text-align: justify;
+    white-space: pre-wrap;
+}

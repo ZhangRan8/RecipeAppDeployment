@@ -1,0 +1,23 @@
+<div class="container">
+   <header class="logo">
+      Ingredient
+   </header>
+
+
+   <div class="input-group mb-4 short-input-group">
+      <input class="form-control border-2 me-2 shadow-sm rounded-pill" type="text"
+         placeholder="Search your ingredient..." [formControl]="searchControl" />
+      <a class="btn btn-primary rounded-pill" role="button" [routerLink]="['/ingredients/add']">Add new ingredient</a>
+   </div>
+
+
+   <div class="row g-4 py-5 row-cols-1 row-cols-lg-6">
+      @for (ingredient of filteredIngredients; track ingredient.ingredientId) {
+      <app-ingredient-card [ingredient]="ingredient" />
+      }
+   </div>
+
+   <div *ngIf="filteredIngredients.length === 0" class="empty-message">
+      <p>No ingredients yet.</p>
+   </div>
+</div>
