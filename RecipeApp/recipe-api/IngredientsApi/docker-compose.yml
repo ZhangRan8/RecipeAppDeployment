@@ -1,0 +1,6 @@
+services:
+  ingredientsapi:
+    image: ${DOCKER_REGISTRY-}ingredientsapi
+    build:
+      context: .
+      dockerfile: IngredientsApi/Dockerfile

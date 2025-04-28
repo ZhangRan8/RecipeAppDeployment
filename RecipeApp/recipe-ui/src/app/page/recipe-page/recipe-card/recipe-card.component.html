@@ -1,0 +1,14 @@
+<div class="card shadow-sm">
+    <img [src]="recipe.recipeImageUrl" [alt]="recipe.recipeName" class="card-img-top recipe-img" />
+    <div class="card-body">
+        <h5 class="card-title">{{ recipe.recipeName }}</h5>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a role="button" class="btn btn-sm btn-outline-secondary"
+                    [routerLink]="['/recipes', this.recipe.recipeId]">View</a>
+                <a role="button" class="btn btn-sm btn-outline-secondary"
+                    [routerLink]="['/recipes/edit', this.recipe.recipeId]">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>

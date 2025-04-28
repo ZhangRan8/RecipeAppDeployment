@@ -1,0 +1,21 @@
+<div class="container">
+    <header class="logo">
+        Recipe
+    </header>
+
+    <div class="input-group mb-4 short-input-group">
+        <input class="form-control border-2 me-2 shadow-sm rounded-pill" type="text" placeholder="Search your recipe..."
+            [formControl]="searchControl">
+        <a [routerLink]="['/recipes/add']" class="btn btn-primary rounded-pill" role="button">Add new recipe</a>
+    </div>
+
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        @for (recipe of filteredRecipes; track recipe.recipeId) {
+        <app-recipe-card [recipe]="recipe" />
+        }
+    </div>
+
+    <div *ngIf="filteredRecipes.length === 0" class="empty-message">
+        <p>No recipes yet.</p>
+    </div>
+</div>

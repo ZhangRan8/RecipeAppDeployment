@@ -1,0 +1,169 @@
+<div class="container">
+
+    <header class="logo">
+        Recipe Manager
+    </header>
+
+    <h1 class="custom-header">{{ isEdit ? 'Edit Recipe' : 'Add Recipe' }}</h1>
+
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="row g-3">
+        <section class="listing-description">
+
+            <div class="recipe-field col-md-6">
+                <label for="recipeName" class="form-label">Recipe Name*: </label>
+                <input type="text" formControlName="recipeName" class="form-control" id="recipeName"
+                    placeholder="Must not be blank" id="recipeName" required />
+
+                <div class="error-message">
+                    @if (recipeNameControl?.touched && recipeNameControl?.invalid) {
+                    Name cannot be empty.
+                    }
+                </div>
+            </div>
+
+            <div class="recipe-field col-md-6">
+                <label for="imageUrl" class="form-label">Image URL*: </label>
+                <input type="text" id="recipeImageUrl" placeholder="e.g. https://example.com" formControlName="imageUrl"
+                    class="form-control" />
+                <div class="error-message">
+                    @if (imageUrlControl?.touched && imageUrlControl?.invalid) {
+                    Image URL error.
+                    }
+                </div>
+            </div>
+
+
+            <div class="recipe-field col-md-12">
+                <label for="ingredient" class="form-label">Ingredient(s)*: </label>
+
+                <div formArrayName="ingredients">
+                    <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i"
+                        class="ingredient-row">
+                        <div class="input-group">
+
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <div class="ms-1 d-inline-block align-self-center">
+                                        @if(!ingredient.get('ingredient')?.value?.isActive &&
+                                        ingredient.get('ingredient')?.value){
+                                        <span class="ms-1 " placement="top"
+                                            ngbTooltip="This ingredient is inactive, so it couldn't be modified.">
+                                            ⚠️
+                                        </span>
+                                        }
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="ingredient"
+                                        [ngbTypeahead]="search" [inputFormatter]="formatter"
+                                        [resultFormatter]="formatter" [editable]="false"
+                                        placeholder="Type and select ingredient name..." />
+                                </div>
+
+                                <div class="error-message">
+                                    @if (ingredient.get('ingredient')?.touched &&
+                                    ingredient.get('ingredient')?.invalid) {
+                                    Ingredient not found. Please select from the list.
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input type="number" formControlName="ingredientQuantity" class="form-control"
+                                    [ngClass]="{'text-muted': ingredient.get('ingredient')?.value && !ingredient.get('ingredient')?.value.isActive}"
+                                    placeholder="Type ingredient quantity..." />
+                                <div class="error-message">
+                                    @if (ingredient.get('ingredientQuantity')?.touched &&
+                                    ingredient.get('ingredientQuantity')?.invalid){
+                                    Quantity must be a valid number.
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <select formControlName="ingredientUnit" class="form-select"
+                                    [ngClass]="{'text-muted': ingredient.get('ingredient')?.value && !ingredient.get('ingredient')?.value.isActive}">
+                                    <option value="" disabled selected>Select unit...</option>
+                                    <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+                                </select>
+                                <div class="error-message">
+                                    @if (ingredient.get('ingredientUnit')?.touched &&
+                                    ingredient.get('ingredientUnit')?.invalid){
+                                    Please select a valid unit.
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-md-1">
+                                <button type="button" (click)="removeIngredient(i)" class="btn btn-remove"
+                                    [disabled]="ingredients.length === 1"> ✕ </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button type="button" (click)="addIngredient()" class="btn btn-success">Add another ingredient to
+                        recipe</button>
+                    <a [routerLink]="['/ingredients/add']" class="btn btn-info">Ingredient not found? Click here to
+                        add</a>
+                </div>
+
+
+            </div>
+
+            <div class="recipe-field col-md-6">
+                <label for="instructions" class="form-label">Instructions*: </label>
+                <textarea id="instructions" formControlName="instructions" class="form-control"
+                    placeholder="Enter the instructions...">
+                </textarea>
+                <div class="error-message">
+                    @if (instructionsControl?.touched && instructionsControl?.invalid) {
+                    Instructions shouldn't be empty.
+                    }
+                </div>
+            </div>
+
+        </section>
+
+        <div class="button-group">
+            <button type="button" class="btn btn-primary" [disabled]="recipeForm.invalid"
+                (click)="openModal(exampleModal)">
+                {{ isEdit ? 'Update Recipe' : 'Save Recipe' }}
+            </button>
+            <a [routerLink]="['/recipes']" class="btn btn-secondary" role="button">Cancel</a>
+            @if(isEdit) {
+            <button type="button" class="btn btn-danger ms-5" (click)="onDeleteClick(exampleModal)">Delete
+                Recipe</button>
+            }
+        </div>
+
+        <ng-template #exampleModal let-modal>
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <span *ngIf="isDelete" class="text-danger">Delete
+                        Recipe</span>
+                    <span *ngIf="!isDelete">Save Changes</span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')">
+                </button>
+            </div>
+            <div class="modal-body">
+                <span *ngIf="isDelete" class="text-danger">Are you sure you want to delete this recipe?</span>
+                <span *ngIf="!isDelete">Are you going to make these changes?</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+                @if(isDelete){
+                <button type="button" class="btn btn-danger" (click)="deleteAndClose(modal)">
+                    Delete Recipe
+                </button>
+                }@else{
+                <button type="button" class="btn btn-primary" (click)="submitAndClose(modal)">
+                    Save Changes
+                </button>
+                }
+            </div>
+        </ng-template>
+
+    </form>
+</div>

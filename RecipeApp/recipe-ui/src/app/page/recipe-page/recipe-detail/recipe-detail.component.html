@@ -1,0 +1,52 @@
+<div class="container">
+    <header class="logo">
+        Recipe Manager
+    </header>
+
+    <div class="container my-5">
+
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
+            <div class="col-10 col-sm-8 col-lg-6 mb-5">
+                <img [src]="recipe?.recipeImageUrl" alt="recipe.recipeName"
+                    class="fixed-img d-block mx-lg-auto img-fluid float-end" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{recipe?.recipeName}}</h1>
+                <h3 class="fs-2">Ingredients:</h3>
+                <table class="table table-striped mb-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (ingredient of recipe?.ingredients; track ingredient.ingredientId; let i = $index) {
+                        <tr>
+                            <td> {{ ingredient.ingredientName }}
+                                @if (!ingredient.isActive) {
+                                <span class="ms-1 " placement="top"
+                                    ngbTooltip="This ingredient is inactive, please add this first.">
+                                    ⚠️
+                                </span>
+                                }
+                            </td>
+                            <td [ngClass]="{'text-muted': !ingredient.isActive}">{{ ingredient.quantity }}</td>
+                            <td [ngClass]="{'text-muted': !ingredient.isActive}">{{ ingredient.unit }}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <h3 class="fs-2">Instructions:</h3>
+                <p class="lead mb-5 instructions-text">{{recipe?.instructions}}</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a [routerLink]="['/recipes']" role="button" class="btn btn-primary btn-lg px-4 me-md-2">Back</a>
+                    <a [routerLink]="['/recipes/edit',recipe?.recipeId]" role="button"
+                        class="btn btn-outline-secondary btn-lg px-4">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

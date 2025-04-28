@@ -1,0 +1,75 @@
+.form-item {
+  display: flex;
+  margin: 2rem;
+
+  label {
+    font-size: 24px;
+    font-family: var(--font-family);
+    width: 15%;
+  }
+}
+
+.custom-header {
+  font-family: var(--font-family);
+  color: var(--primary-color);
+}
+
+.button-container {
+  padding-bottom: 2rem;
+}
+
+.button {
+  padding: 0.25rem 0.5rem;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 24px;
+  transition: background-color 0.2s;
+  color: var(--text-color-active);
+  background-color: var(--background-color-card-action);
+  background: var(--primary-color-light);
+  font-family: var(--font-family);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:disabled {
+  border: 2px solid var(--text-color-disabled);
+  background: var(--text-color-disabled);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button.submit {
+  width: 70%;
+}
+
+
+.btn-remove {
+  margin-left: 2rem;
+  background-color: var(--primary-color);
+  color: var(--text-color-secondary);
+}
+
+.btn-remove:hover {
+  transform: translateY(-2px);
+}
+
+.btn-remove:disabled {
+  background: var(--primary-color-light);
+  cursor: not-allowed;
+}
+
+
+.btn-info {
+  margin: 1rem;
+}
+
+.btn-secondary {
+  margin: 1rem;
+}
+
+.recipe-field {
+  padding: 0.5rem;
+}
