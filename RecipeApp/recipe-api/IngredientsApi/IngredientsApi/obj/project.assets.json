@@ -3769,11 +3769,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\IngredientsApi.csproj",
+      "projectUniqueName": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\IngredientsApi.csproj",
       "projectName": "IngredientsApi",
-      "projectPath": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\IngredientsApi.csproj",
+      "projectPath": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\IngredientsApi.csproj",
       "packagesPath": "C:\\Users\\LorraineZhang\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\obj\\",
+      "outputPath": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5Z9eZsMAuRQ=",
+  "dgSpecHash": "fgBMH1vTT8U=",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\Ingredient.IntegrationTests\\Ingredient.IntegrationTests.csproj",
+  "projectFilePath": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\Ingredient.IntegrationTests\\Ingredient.IntegrationTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LorraineZhang\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\LorraineZhang\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

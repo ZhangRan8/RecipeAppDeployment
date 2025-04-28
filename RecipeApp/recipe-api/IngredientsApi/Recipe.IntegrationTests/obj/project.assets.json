@@ -9844,11 +9844,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IngredientsApi\\Recipe.IntegrationTests\\Recipe.IntegrationTests.csproj",
+      "projectUniqueName": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IngredientsApi\\Recipe.IntegrationTests\\Recipe.IntegrationTests.csproj",
       "projectName": "Recipe.IntegrationTests",
-      "projectPath": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IngredientsApi\\Recipe.IntegrationTests\\Recipe.IntegrationTests.csproj",
+      "projectPath": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IngredientsApi\\Recipe.IntegrationTests\\Recipe.IntegrationTests.csproj",
       "packagesPath": "C:\\Users\\LorraineZhang\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IngredientsApi\\Recipe.IntegrationTests\\obj\\",
+      "outputPath": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IngredientsApi\\Recipe.IntegrationTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9869,11 +9869,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\IngredientsApi.csproj": {
-              "projectPath": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\IngredientsApi.csproj"
+            "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\IngredientsApi.csproj": {
+              "projectPath": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IngredientsApi\\IngredientsApi\\IngredientsApi.csproj"
             },
-            "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IntegrationTests.CommonFiles\\IntegrationTests.CommonFiles.csproj": {
-              "projectPath": "D:\\GitHub\\LorraineFBC\\SSWFireBootCamp.2024.HangZhou.LorraineZhang\\RecipeApp\\recipe-api\\IntegrationTests.CommonFiles\\IntegrationTests.CommonFiles.csproj"
+            "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IntegrationTests.CommonFiles\\IntegrationTests.CommonFiles.csproj": {
+              "projectPath": "D:\\GitHub\\DeployTest\\RecipeAppDeployment\\RecipeApp\\recipe-api\\IntegrationTests.CommonFiles\\IntegrationTests.CommonFiles.csproj"
             }
           }
         }
